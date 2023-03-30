@@ -1,0 +1,20 @@
+close all;clear;clc
+
+%%% Ce script montre la caractérisation d'une erreur convolutive dans le
+%%% cas d'une TFD en utilisant la méthode du périodogramme avec une fenêtre
+%%% de troncature rectangulaire. En somme, elle montre la forme d'un noyau
+%%% de Dirichlet.
+
+N = 200;
+f_tilde = linspace(-pi/8,pi/8,N);
+err = sin(pi*f_tilde*N)./sin(pi*f_tilde);
+sinc_e = sin(pi*f_tilde*N)/(pi*f);
+
+figure;
+plot(err);
+hold on
+plot(sinc_e);
+xlabel('Echantillons')
+ylabel('Amplitude de l erreur')
+title('Noyau de Dirichlet')
+legend('Noyau de Dirichlet','Sinus Cardinal')
